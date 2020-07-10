@@ -28,29 +28,17 @@ jobs:
     - name: Run exporter 
       run: | 
            liaex -i README.md --format scorm1.2 --output Scorm12
-    
-    - name: set environment variables
-      uses: allenevans/set-env@v1.0.0
-      with:
-          FILE: Scorm12*.zip
-    
-    - name: Test Env Variable
-      run: |
-           echo ::set-output name=date::$(/bin/date -u "+%Y%m%d")
-           echo 'The output date is ${{ steps.get-date.outputs.date }}'
-           echo "::set-env name=FILELIST::$(printf '"%s" ' *.zip)"
-           echo ${{ env.FILELIST }} 
      
-    - name: Set selected color
+    - name: Set SCORM file
       run: echo ::set-env name=SCORMFILE::$(printf '"%s" ' *.zip)
       
-    - name: Get color
-      run: echo 'The selected color is' ${SCORMFILE}
+    - name: Test SCORM file
+      run: echo 'The following file were generated' ${SCORMFILE}
             
     - name: Unzip SCORM file
       run: |
-           echo ${FILE}
-           unzip ${FILE} -d output
+           echo ${SCORMFILE}
+           unzip ${SCORMFILE} -d output
     
     - uses: actions/upload-artifact@master
       with:
