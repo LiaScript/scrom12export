@@ -31,10 +31,10 @@ jobs:
            
     - name: Show rockOn
       run: |
-           echo ::set-env name=FILE::$(ls *.zip)
-           echo ${{ env.FILE }}
+           echo ::set-env name=FILE::$(ls Scorm12*.zip)
+           unzip ${{ env.FILE }} -d /output
            
-    - uses: actions/upload-artifact@v2-preview
+    - uses: actions/upload-artifact@master
       with:
-          name: output
-          path: ${{ env.FILE }}
+          name: ${{ env.FILE }}
+          path: output
