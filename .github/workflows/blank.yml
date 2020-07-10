@@ -32,7 +32,7 @@ jobs:
     - name: Show rockOn
       run: |
            ls Scorm12*.zip
-           echo ::set-env name=FILE::${ls Scorm12*.zip}
+           echo ::set-env name=FILE::$(ls Scorm12*.zip)
            echo $FILE 
            unzip ${{ env.FILE }} -d ./output/
            
