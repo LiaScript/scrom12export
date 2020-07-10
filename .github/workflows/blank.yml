@@ -38,7 +38,9 @@ jobs:
       run: |
            echo ::set-output name=date::$(/bin/date -u "+%Y%m%d")
            echo 'The output date is ${{ steps.get-date.outputs.date }}'
-                     
+           echo "::set-env name=FILELIST::$(printf '"%s" ' *.zip)"
+           echo ${{ env.FILELIST }} 
+            
     - name: Show rockOn
       run: |
            echo ${FILE}
