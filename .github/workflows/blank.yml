@@ -34,7 +34,7 @@ jobs:
            echo ::set-env name=FILE::$(ls *.zip)
            echo ${{ env.FILE }}
            
-    - uses: actions/upload-artifact@master
+    - uses: actions/upload-artifact@v2-preview
       with:
           name: output
           path: ${{ env.FILE }}
