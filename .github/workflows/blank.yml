@@ -36,8 +36,8 @@ jobs:
            
     - name: Show rockOn
       run: |
-           ls Scorm12*.zip
            echo ${FILE}
+           unzip ${FILE} -d output
     
     - uses: actions/upload-artifact@master
       with:
