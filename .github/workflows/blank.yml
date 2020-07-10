@@ -54,5 +54,5 @@ jobs:
     
     - uses: actions/upload-artifact@master
       with:
-          name: ${SCORMFILE}
+          name: ${{ env.SCORMFILE }}
           path: output
