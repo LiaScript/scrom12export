@@ -33,7 +33,7 @@ jobs:
       run: ls -all
     
     - name: Set SCORM file
-      run: echo ::set-env name=SCORMFILE::$(printf '"%s" ' *.zip)
+      run: echo ::set-env name=SCORMFILE::$(ls *.zip)
       
     - name: Test SCORM file
       run: echo 'The following file were generated' ${SCORMFILE}
