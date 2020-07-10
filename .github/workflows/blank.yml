@@ -40,6 +40,12 @@ jobs:
            echo 'The output date is ${{ steps.get-date.outputs.date }}'
            echo "::set-env name=FILELIST::$(printf '"%s" ' *.zip)"
            echo ${{ env.FILELIST }} 
+     
+    - name: Set selected color
+      run: echo '::set-env name=SELECTED_COLOR::green'
+      
+    - name: Get color
+      run: echo 'The selected color is' $SELECTED_COLOR
             
     - name: Show rockOn
       run: |
