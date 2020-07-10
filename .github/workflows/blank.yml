@@ -30,10 +30,9 @@ jobs:
            liaex -i README.md --format scorm1.2 --output Scorm12
     
     - name: set environment variables
-        uses: allenevans/set-env@v1.0.0
-        with:
+      uses: allenevans/set-env@v1.0.0
+      with:
           FILE: $(ls Scorm12*.zip)
-
            
     - name: Show rockOn
       run: |
