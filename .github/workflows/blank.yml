@@ -28,13 +28,16 @@ jobs:
     - name: Run exporter 
       run: | 
            liaex -i README.md --format scorm1.2 --output Scorm12
-     
+    
+    - name: Show folder
+      run: ls -all
+    
     - name: Set SCORM file
       run: echo ::set-env name=SCORMFILE::$(printf '"%s" ' *.zip)
       
     - name: Test SCORM file
       run: echo 'The following file were generated' ${SCORMFILE}
-            
+    
     - name: Unzip SCORM file
       run: |
            echo ${SCORMFILE}
