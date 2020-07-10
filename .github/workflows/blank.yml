@@ -23,7 +23,7 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: Install LiaScript Exporter
-      run: npm install --verbose https://github.com/liaScript/LiaScript-Exporter
+      run: sudo npm install -g --verbose https://github.com/liaScript/LiaScript-Exporter
       
     - name: Show Folder
       run: |
