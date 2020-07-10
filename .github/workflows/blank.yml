@@ -25,11 +25,16 @@ jobs:
     - name: Install LiaScript Exporter
       run: sudo npm install -g --verbose https://github.com/liaScript/LiaScript-Exporter
       
-    - name: Show Folder
-      run: |
-            ls -all
-            pwd
-    
     - name: Run exporter 
       run: | 
-           liaex -i scorm12export/README.md --format scorm1.2 --output rockOn
+           liaex -i README.md --format scorm1.2 --output Scorm12
+           
+    - name: Show rockOn
+      run: |
+           echo ::set-env name=FILE::$(ls *.zip)
+           echo ${{ env.FILE }}
+           
+    - uses: actions/upload-artifact@master
+      with:
+          name: output
+          path: ${{ env.FILE }}
