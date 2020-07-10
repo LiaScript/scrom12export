@@ -33,7 +33,7 @@ jobs:
       run: |
            ls Scorm12*.zip
            echo ::set-env name=FILE::$(ls Scorm12*.zip)
-           echo $FILE 
+           echo $env.FILE 
            unzip ${{ env.FILE }} -d ./output/
            
     - uses: actions/upload-artifact@master
