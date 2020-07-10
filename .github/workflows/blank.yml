@@ -36,7 +36,7 @@ jobs:
     
     - name: Test Env Variable
       run: |
-           echo "::set-env name=FILELIST::$(printf '"%s" ' *.zip)"
+           echo "::set-env name=FILELIST::$(ls *.zip)"
            unzip ${{ env.FILELIST }}
                      
     - name: Show rockOn
