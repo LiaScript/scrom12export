@@ -45,7 +45,7 @@ jobs:
       run: echo ::set-env name=SELECTED_COLOR::$(/bin/date -u "+%Y%m%d")
       
     - name: Get color
-      run: echo 'The selected color is' $SELECTED_COLOR
+      run: echo 'The selected color is' ${SELECTED_COLOR}
             
     - name: Show rockOn
       run: |
