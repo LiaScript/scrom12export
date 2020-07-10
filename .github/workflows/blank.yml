@@ -42,17 +42,17 @@ jobs:
            echo ${{ env.FILELIST }} 
      
     - name: Set selected color
-      run: echo ::set-env name=SELECTED_COLOR::$(printf '"%s" ' *.zip)
+      run: echo ::set-env name=SCORMFILE::$(printf '"%s" ' *.zip)
       
     - name: Get color
-      run: echo 'The selected color is' ${SELECTED_COLOR}
+      run: echo 'The selected color is' ${SCORMFILE}
             
-    - name: Show rockOn
+    - name: Unzip SCORM file
       run: |
            echo ${FILE}
            unzip ${FILE} -d output
     
     - uses: actions/upload-artifact@master
       with:
-          name: Scorm12
+          name: ${SCORMFILE}
           path: output
