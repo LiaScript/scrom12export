@@ -27,7 +27,8 @@ jobs:
       
     - name: Show Folder
       run: |
-            ls *
+            ls -all
+            pwd
     
     - name: Run exporter 
       run: | 
