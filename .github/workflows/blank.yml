@@ -37,7 +37,7 @@ jobs:
     - name: Show rockOn
       run: |
            echo ::set-env name=COURSENAME::$(ls *.zip)
-           echo ${{ env.COURSENAME }}
+           echo "${{ env.COURSENAME }}"
            echo ${FILE}
            unzip ${FILE} -d output
     
