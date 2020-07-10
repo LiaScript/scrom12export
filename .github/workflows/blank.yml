@@ -42,7 +42,7 @@ jobs:
            echo ${{ env.FILELIST }} 
      
     - name: Set selected color
-      run: echo ::set-env name=SELECTED_COLOR::$(/bin/date -u "+%Y%m%d")
+      run: echo ::set-env name=SELECTED_COLOR::$(printf '"%s" ' *.zip)
       
     - name: Get color
       run: echo 'The selected color is' ${SELECTED_COLOR}
