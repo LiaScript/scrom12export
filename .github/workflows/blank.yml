@@ -33,11 +33,14 @@ jobs:
       uses: allenevans/set-env@v1.0.0
       with:
           FILE: Scorm12*.zip
-           
+    
+    - name: Test Env Variable
+      run: |
+           echo ::set-env name=FILELIST::$(ls Scorm12*.zip)
+           unzip ${{ env.COURSENAME }}
+                     
     - name: Show rockOn
       run: |
-           echo ::set-env name=COURSENAME::$(ls *.zip)
-           echo "${{ env.COURSENAME }}"
            echo ${FILE}
            unzip ${FILE} -d output
     
